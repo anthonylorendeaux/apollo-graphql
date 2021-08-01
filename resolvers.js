@@ -9,6 +9,14 @@ const resolvers = {
             return await Post.find()
         }
     },
+    Mutation: {
+        createPost: async (parent, args, context, info) => {
+            const { title, content } = args.post
+            const post = new Post({title, content})
+            await post.save()
+            return post
+        }
+    }
 };
 
 module.exports = resolvers;
