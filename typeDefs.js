@@ -21,6 +21,7 @@ const typeDefs = gql`
 
     type Mutation {
         createPost(post: PostInput): Post
+        deletePost(id: ID): String
     }
 `;
 

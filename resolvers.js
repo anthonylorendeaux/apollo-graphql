@@ -19,6 +19,11 @@ const resolvers = {
             const post = new Post({title, content})
             await post.save()
             return post
+        },
+        deletePost: async (parent, args, context, info) => {
+            const {id} = args
+            await Post.findByIdAndDelete(id)
+            return "Ok, post deleted"
         }
     }
 };
